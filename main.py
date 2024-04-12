@@ -10,11 +10,11 @@ from bs4 import BeautifulSoup
 def main():
     url =  'https://kashdout.com/vip-package'
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
-    cities = ['Orlando', 'Daytona', 'Sanford', 'Cocoa', 'Chicago']
+    cities = ['Orlando', 'Daytona', 'Sanford', 'Cocoa']
     time_stamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print('---- START ------')
+    print('\n---- checking for new cities ------')
     print(time_stamp)
-    print('\n\n')
+    print('\n')
 
 
     response = requests.get(url, headers=headers)
@@ -23,18 +23,10 @@ def main():
         print('Request failed!')
         exit()
 
+    # parse page content
     content = response.content
-
     soup = BeautifulSoup(content, 'html.parser')
-
-
-    print(soup.title.string)
-
     entries = soup.find_all('tr', class_='border-accent')
-    print(len(entries))
-
-
-    print('---- NEW ------')
     published_cities = soup.find_all('span')
 
     found_vip = {}
@@ -118,9 +110,10 @@ def at_top_of_hour():
     # Get the current time
     now = datetime.now()
     
-    # Calculate the number of minutes and seconds to the next hour
+    # Calculate the number of minutes to the next hour
     minutes_to_hour = 60 - now.minute
-    
+    print(minutes_to_hour)
+
     # Check if the current time is within 1 minutes of the next hour
     if (minutes_to_hour < 2) or (minutes_to_hour == 59):
         return True
