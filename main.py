@@ -115,7 +115,7 @@ def at_top_of_hour():
     print(minutes_to_hour)
 
     # Check if the current time is within 1 minutes of the next hour
-    if (minutes_to_hour < 2) or (minutes_to_hour == 59):
+    if (minutes_to_hour < 2) or (minutes_to_hour > 58):
         return True
     return False
 
