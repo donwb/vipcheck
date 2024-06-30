@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 def main():
     url =  'https://kashdout.com/vip-package'
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
-    cities = ['Orlando', 'Daytona', 'Sanford', 'Cocoa', 'Dallas']
+    cities = ['Orlando', 'Daytona', 'Sanford', 'Cocoa']
     time_stamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print('\n---- checking for new cities ------')
     print(time_stamp)
