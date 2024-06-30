@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 def main():
     url =  'https://kashdout.com/vip-package'
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
-    cities = ['Orlando', 'Daytona', 'Sanford', 'Cocoa']
+    cities = ['Orlando', 'Daytona', 'Sanford', 'Cocoa', 'Dallas']
     time_stamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print('\n---- checking for new cities ------')
     print(time_stamp)
@@ -35,7 +35,10 @@ def main():
         print('Checking ' + city)
 
         for published_city in published_cities:
-            if city in published_city.text:
+            l_city = city.lower()
+            l_pub_city = published_city.text.lower()
+
+            if l_city in l_pub_city:
             # print(city + ' is a match!')
                 found_vip[city] = True
 
